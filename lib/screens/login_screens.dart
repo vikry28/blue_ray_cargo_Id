@@ -141,35 +141,36 @@ class _LoginScreensState extends State<LoginScreens> {
                                   : () async {
                                     if (_formKey.currentState!.validate()) {
                                       _formKey.currentState!.save();
-                                      await authProvider.login(
-                                        _emailController.text,
-                                        _passwordController.text,
-                                      );
+                                      String? success = await authProvider
+                                          .login(
+                                            _emailController.text,
+                                            _passwordController.text,
+                                          );
 
-                                      // if (success != null) {
-                                      //   ScaffoldMessenger.of(
-                                      //     context,
-                                      //   ).showSnackBar(
-                                      //     const SnackBar(
-                                      //       content: Text('Login berhasil!'),
-                                      //     ),
-                                      //   );
-                                      //   Navigator.pushReplacementNamed(
-                                      //     context,
-                                      //     '/home',
-                                      //   );
-                                      // } else {
-                                      //   ScaffoldMessenger.of(
-                                      //     context,
-                                      //   ).showSnackBar(
-                                      //     const SnackBar(
-                                      //       content: Text(
-                                      //         'Login gagal! Periksa kembali email dan password',
-                                      //       ),
-                                      //       backgroundColor: Colors.red,
-                                      //     ),
-                                      //   );
-                                      // }
+                                      if (success != null) {
+                                        ScaffoldMessenger.of(
+                                          context,
+                                        ).showSnackBar(
+                                          const SnackBar(
+                                            content: Text('Login berhasil!'),
+                                          ),
+                                        );
+                                        Navigator.pushReplacementNamed(
+                                          context,
+                                          '/home',
+                                        );
+                                      } else {
+                                        ScaffoldMessenger.of(
+                                          context,
+                                        ).showSnackBar(
+                                          const SnackBar(
+                                            content: Text(
+                                              'Login gagal! Periksa kembali email dan password',
+                                            ),
+                                            backgroundColor: Colors.red,
+                                          ),
+                                        );
+                                      }
                                     }
                                   },
                           style: ElevatedButton.styleFrom(

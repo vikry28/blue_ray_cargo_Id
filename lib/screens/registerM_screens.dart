@@ -108,7 +108,6 @@ class _RegisterMScreensState extends State<RegisterMScreens> {
                   UserInfoEditField(
                     text: "Email",
                     child: TextFormField(
-                      initialValue: email,
                       controller: emailController,
                       decoration: InputDecoration(
                         filled: true,
